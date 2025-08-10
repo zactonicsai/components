@@ -25,7 +25,7 @@ import {
 } from '@mui/icons-material';
 import { IconButton, InputAdornment } from '@mui/material';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
-import { clearError } from '../../store/authSlice';
+import { clearError, login } from '../../store/authSlice';
 import Navigation from '../Navigation';
 import { USERS_DATA } from '../../data/users';
 
@@ -75,12 +75,12 @@ const Login: React.FC = () => {
   };
 
   const handleDemoLogin = (username: string, password: string) => {
-    setCredentials({ username, password });
+    setCredentials({ username, passsword });
     dispatch(login({ username, password }));
   };
 
   const togglePasswordVisibility = () => {
-    setShowPassword(prev => !prev);
+    setShowPassword((prev: any) => !prev);
   };
 
   return (

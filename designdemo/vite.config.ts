@@ -212,12 +212,23 @@ export default defineConfig(({ command, mode }) => {
     test: {
       globals: true,
       environment: 'jsdom',
-      setupFiles: ['./src/test/setup.ts'],
+     // setupFiles: ['./src/test/setup.ts'],
       css: true,
       reporters: ['verbose'],
+       exclude: [
+      // Default excludes
+      'node_modules',
+      'dist',
+      '.git',
+      '.cache',
+      
+      // Exclude Playwright test directories
+      'ui-tx/**'
+       ],
       coverage: {
         reporter: ['text', 'json', 'html'],
         exclude: [
+          'ui-tests/',
           'node_modules/',
           'src/test/',
           '**/*.d.ts',
